@@ -1,4 +1,31 @@
 (function () {
+  const ProductWrapper = {
+    create: function (productInfo) {
+      const obj = Object.create(this);
+      obj.id = productInfo.id;
+      obj.name = productInfo.name;
+      obj.hero = productInfo.hero;
+      obj.images = productInfo.images;
+      obj.links = productInfo.links;
+      obj.priceRange = productInfo.priceRange;
+      return obj;
+    },
+
+    generateLiElm: function () {
+      const productLiTemplateElm = document.createElement('template');
+      productLiTemplateElm.innerHTML = `
+        <li class="product-item" style="background-image: url(${this.hero.href})" title="${this.name}" data-uid="${this.id}">
+            <div class="product-price">
+                <span class="price-currency">$</span>
+                <!--<span class="price-value high">${this.priceHigh}</span>-->
+            </div>
+        <!-- add link to view slideshow -->
+        </li>`;
+      return productLiTemplateElm.content;
+    },
+
+    },
+  };
   //
   const fetchHeaders = {
     method: 'GET',
@@ -20,29 +47,17 @@
     asideTitleElm.textContent = title;
   };
 
-  const setProductList = (arr) => {
+  const setupProductList = (arr) => {
+    //TODO: More and better validation.
     if (!Array.isArray(arr)) {
-      products = [];
-      // Throw an error
       return false;
     }
-    products = arr;
+    products = arr.map(arrItem => ProductWrapper.create(arrItem));
   };
 
   const renderProductListAside = () => {
-    products.forEach(product => {
-      const productItem = document.createElement('li');
-      productItem.setAttribute('id', product.id);
-      productItem.setAttribute('class', 'product-item');
-      productItem.setAttribute('style', `background-image: url(${product.hero.href}`);
-      productItem.setAttribute('name', product.hero.alt);
-
-      const productImage = document.createElement('img');
-      productImage.setAttribute('class', 'product-img hero');
-
-      productItem.append(productImage);
-
-      asideProductElm.appendChild(productItem);
+    products.forEach(item => {
+      asideProductElm.appendChild(item.generateLiElm());
     });
   };
 
@@ -50,10 +65,8 @@
     fetchHeaders)
     .then(response => response.json())
     .then(data => {
-      console.log(data);
-      // products = (data && data.groups) ? data.groups : [];
       setAsideTitle(data.name);
-      setProductList(data.groups);
+      setupProductList(data.groups);
       renderProductListAside();
     })
     .catch(error => console.log(error));
