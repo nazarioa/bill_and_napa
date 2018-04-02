@@ -1,3 +1,5 @@
+'use strict';
+
 (function () {
   const ProductWrapper = {
     create: function (productInfo) {
