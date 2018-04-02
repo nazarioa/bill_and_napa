@@ -61,13 +61,17 @@
     });
   };
 
-  fetch('http://localhost/~nazario/com/william-sonoma-vanilla/tmp/data.json',
-    fetchHeaders)
-    .then(response => response.json())
-    .then(data => {
-      setAsideTitle(data.name);
-      setupProductList(data.groups);
-      renderProductListAside();
-    })
-    .catch(error => console.log(error));
+  const init = () => {
+    // Get Data
+    fetch('http://localhost/~nazario/com/william-sonoma-vanilla/tmp/data.json',
+      fetchHeaders)
+      .then(response => response.json())
+      .then(data => {
+        setAsideTitle(data.name);
+        setupProductList(data.groups);
+        renderProductListAside();
+      })
+      .catch(error => console.log(error));
+  };
+  init();
 })();
