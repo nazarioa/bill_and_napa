@@ -17,9 +17,6 @@
       const productLiTemplateElm = document.createElement('template');
       productLiTemplateElm.innerHTML = `
         <li class="product-item" style="background-image: url(${this.hero.href})" title="${this.name}" data-uid="${this.id}">
-            <div class="product-price">
-                <span class="price-currency">$</span>
-            </div>
         <!-- add link to view slideshow -->
         </li>`;
       return productLiTemplateElm.content;
