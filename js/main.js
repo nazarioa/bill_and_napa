@@ -17,13 +17,27 @@
         <li class="product-item" style="background-image: url(${this.hero.href})" title="${this.name}" data-uid="${this.id}">
             <div class="product-price">
                 <span class="price-currency">$</span>
-                <!--<span class="price-value high">${this.priceHigh}</span>-->
             </div>
         <!-- add link to view slideshow -->
         </li>`;
       return productLiTemplateElm.content;
     },
 
+    generateDetailDisplayElm: function () {
+      const productDetailTemplateElm = document.querySelector('#product-detail-tpl');
+      productDetailTemplateElm.content.querySelector('.product-title').innerHTML = this.name;
+      productDetailTemplateElm.content.querySelector('.product-img').setAttribute('src', this.hero.href);
+      productDetailTemplateElm.content.querySelector('.product-link').setAttribute('href', this.links.www);
+      productDetailTemplateElm.content.querySelector('.product-description').innerHTML = `
+      <p>Candy sesame snaps danish topping wafer. Sweet roll candy topping pudding. Dragée icing wafer macaroon cupcake dessert chupa chups sweet chocolate.</p>
+      <p>Gummies jujubes pudding. Topping topping candy jelly fruitcake. Wafer candy chocolate oat cake marshmallow.</p>
+      <p>Biscuit cupcake fruitcake liquorice brownie jelly sweet biscuit. Pastry candy carrot cake gummi bears chupa chups ice cream fruitcake wafer liquorice. Candy tart cookie gummi bears. Sweet roll jelly beans candy caramels.</p>
+      <p>Gingerbread topping cake biscuit oat cake icing gummi bears sweet roll fruitcake. Chocolate cake chupa chups lollipop biscuit candy bonbon. Cheesecake jelly wafer sesame snaps.</p>`;
+
+      // Clear out old stuff.
+      // TODO: There should be a better way to do this.
+      pageMainElm.innerHTML = '';
+      pageMainElm.appendChild(document.importNode(productDetailTemplateElm.content, true));
     },
   };
   //
@@ -39,6 +53,7 @@
   // Elements
   const asideTitleElm = document.querySelector('.aside-title');
   const asideProductElm = document.querySelector('.page-aside .products');
+  const pageMainElm = document.querySelector('.page-main');
 
   // Data Structures
   let products = [];
@@ -61,7 +76,25 @@
     });
   };
 
+  const displayDetail = (uid) => {
+    const product = products.filter(item => item.id === uid);
+    if (product.length > 0) {
+      product[0].generateDetailDisplayElm();
+    } else {
+      // TODO: More elegant way to handel this
+      throw new Error('Something bad happened.');
+    }
+  };
+
   const init = () => {
+    // Add listener to all elements
+    asideProductElm.addEventListener('click', (e) => {
+      if (e.target.classList.contains('product-item')) {
+        const uid = e.target.dataset.uid;
+        displayDetail(uid);
+      }
+    });
+
     // Get Data
     fetch('http://localhost/~nazario/com/william-sonoma-vanilla/tmp/data.json',
       fetchHeaders)

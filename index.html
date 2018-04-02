@@ -23,12 +23,6 @@
     </header>
 
     <section class="page-main product">
-        <h2 class="product-title">Product</h2>
-        <img class="product-img" src="#">
-        <div class="product-price">
-            <span class="price-currency">$</span>
-            <span class="price-value">0.00</span>
-        </div>
     </section>
 
     <aside class="page-aside all-new-picker">
@@ -42,6 +36,16 @@
         </ul>
     </aside>
 </div>
+<template id="product-detail-tpl">
+    <h2 class="product-title"></h2>
+    <img class="product-img" src=""/>
+    <div class="product-price">
+        <span class="price-currency">$</span>
+        <span class="price-value">${this.priceLow}</span>
+    </div>
+    <div class="product-description"></div>
+    <a class="product-link" href="">More Info</a>
+</template>
 <script src="./js/main.js"></script>
 </body>
 </html>
