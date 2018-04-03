@@ -118,6 +118,9 @@
         setupProductList(data.groups);
         renderProductListAside();
       })
+      .then(() => {
+        asideProductElm.querySelectorAll('.product-item')[0].click();
+      })
       .catch(error => console.log(error));
   };
   init();
