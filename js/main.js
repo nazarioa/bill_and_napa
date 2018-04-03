@@ -110,7 +110,7 @@
     });
 
     // Get Data
-    fetch('http://localhost/~nazario/com/william-sonoma-vanilla/tmp/data.json',
+    fetch('./data.json',
       fetchHeaders)
       .then(response => response.json())
       .then(data => {
