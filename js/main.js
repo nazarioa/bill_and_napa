@@ -33,6 +33,21 @@
       <p>Biscuit cupcake fruitcake liquorice brownie jelly sweet biscuit. Pastry candy carrot cake gummi bears chupa chups ice cream fruitcake wafer liquorice. Candy tart cookie gummi bears. Sweet roll jelly beans candy caramels.</p>
       <p>Gingerbread topping cake biscuit oat cake icing gummi bears sweet roll fruitcake. Chocolate cake chupa chups lollipop biscuit candy bonbon. Cheesecake jelly wafer sesame snaps.</p>`;
 
+      if (this.priceRange && this.priceRange.regular) {
+        const productPrice = productDetailTemplateElm.content.querySelector('.product-price');
+        if (this.priceRange.regular.low) {
+          const low = productDetailTemplateElm.content.querySelector('.product-price .low');
+          productPrice.setAttribute('style', 'display: inline');
+          low.innerHTML = this.priceRange.regular.low;
+        }
+
+        if (this.priceRange.regular.high) {
+          const high = productDetailTemplateElm.content.querySelector('.product-price .high');
+          productPrice.setAttribute('style', 'display: inline');
+          high.innerHTML = this.priceRange.regular.high;
+        }
+      }
+
       // Clear out old stuff.
       // TODO: There should be a better way to do this.
       pageMainElm.innerHTML = '';
