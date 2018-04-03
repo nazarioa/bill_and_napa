@@ -27,7 +27,7 @@
       productDetailTemplateElm.content.querySelector('.product-title').innerHTML = this.name;
       productDetailTemplateElm.content.querySelector('.product-img').setAttribute('src', this.hero.href);
       productDetailTemplateElm.content.querySelector('.product-link').setAttribute('href', this.links.www);
-      productDetailTemplateElm.content.querySelector('.product-description').innerHTML = `
+      productDetailTemplateElm.content.querySelector('.product-description-text').innerHTML = `
       <p>Candy sesame snaps danish topping wafer. Sweet roll candy topping pudding. Dragée icing wafer macaroon cupcake dessert chupa chups sweet chocolate.</p>
       <p>Gummies jujubes pudding. Topping topping candy jelly fruitcake. Wafer candy chocolate oat cake marshmallow.</p>
       <p>Biscuit cupcake fruitcake liquorice brownie jelly sweet biscuit. Pastry candy carrot cake gummi bears chupa chups ice cream fruitcake wafer liquorice. Candy tart cookie gummi bears. Sweet roll jelly beans candy caramels.</p>
