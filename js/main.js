@@ -93,12 +93,15 @@
   const displayDetail = (uid) => {
     const product = products.filter(item => item.id === uid);
     if (product.length > 0) {
-      product[0].generateDetailDisplayElm();
+      currentlySelected = product[0];
+      currentlySelected.generateDetailDisplayElm();
     } else {
       // TODO: More elegant way to handel this
       throw new Error('Something bad happened.');
     }
   };
+
+  let currentlySelected = null;
 
   const init = () => {
     // Add listener to all elements
