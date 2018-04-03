@@ -25,7 +25,7 @@
     generateDetailDisplayElm: function () {
       const productDetailTemplateElm = document.querySelector('#product-detail-tpl');
       productDetailTemplateElm.content.querySelector('.product-title').innerHTML = this.name;
-      productDetailTemplateElm.content.querySelector('.product-img').setAttribute('src', this.hero.href);
+      productDetailTemplateElm.content.querySelector('.product-img img').setAttribute('src', this.hero.href);
       productDetailTemplateElm.content.querySelector('.product-link').setAttribute('href', this.links.www);
       productDetailTemplateElm.content.querySelector('.product-description-text').innerHTML = `
       <p>Candy sesame snaps danish topping wafer. Sweet roll candy topping pudding. Dragée icing wafer macaroon cupcake dessert chupa chups sweet chocolate.</p>
