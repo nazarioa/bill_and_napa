@@ -37,13 +37,13 @@
         const productPrice = productDetailTemplateElm.content.querySelector('.product-price');
         if (this.priceRange.regular.low) {
           const low = productDetailTemplateElm.content.querySelector('.product-price .low');
-          productPrice.setAttribute('style', 'display: inline');
+          productPrice.setAttribute('style', 'display: inline-block');
           low.innerHTML = this.priceRange.regular.low;
         }
 
         if (this.priceRange.regular.high) {
           const high = productDetailTemplateElm.content.querySelector('.product-price .high');
-          productPrice.setAttribute('style', 'display: inline');
+          productPrice.setAttribute('style', 'display: inline-block');
           high.innerHTML = this.priceRange.regular.high;
         }
       }
