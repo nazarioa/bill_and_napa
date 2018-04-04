@@ -9,6 +9,7 @@
     <title>Bill & Napa</title>
 </head>
 <body>
+<div id="hud"></div>
 <div class="page">
     <header class="page-header">
         <h1 class="page-title">B<span class="extra">ill</span>&amp;N<span class="extra">apa</span></h1>
@@ -52,7 +53,27 @@
     </div>
     <div class="product-meta">
         <a class="product-link btn" href="">More Info</a>
-        <a class="view-gallery btn btn-primary" href="">Gallery</a>
+        <a class="view-gallery btn btn-primary" href="#">Gallery</a>
+    </div>
+</template>
+
+<template id="gallery-overlay-tpl">
+    <div class="gallery">
+        <h3 class="gallery-title"></h3>
+        <ul class="gallery-images">
+            <li>
+                <img src="" class="gallery-img"/>
+            </li>
+            <li>
+                <img src="" class="gallery-img"/>
+            </li>
+        </ul>
+        <div>
+            <img src="" class="gallery-img">
+        </div>
+        <div class="btn btn-close">
+            <span class="off-screen">Close</span>
+        </div>
     </div>
 </template>
 

@@ -53,6 +53,13 @@
       pageMainElm.innerHTML = '';
       pageMainElm.appendChild(document.importNode(productDetailTemplateElm.content, true));
     },
+
+    generateGalleryOverlay: function () {
+      hudElm.innerHTML = '';
+      galleryOverlayTemplateElm.content.querySelector('.gallery-title').innerHTML = 'Poop';
+      hudElm.appendChild(document.importNode(galleryOverlayTemplateElm.content, true));
+      return galleryOverlayTemplateElm.content;
+    }
   };
   //
   const fetchHeaders = {
@@ -68,6 +75,8 @@
   const asideTitleElm = document.querySelector('.aside-title');
   const asideProductElm = document.querySelector('.page-aside .products');
   const pageMainElm = document.querySelector('.page-main');
+  const hudElm = document.querySelector('#hud');
+  const galleryOverlayTemplateElm = document.querySelector('#gallery-overlay-tpl');
 
   // Data Structures
   let products = [];
@@ -109,6 +118,13 @@
       if (e.target.classList.contains('product-item')) {
         const uid = e.target.dataset.uid;
         displayDetail(uid);
+      }
+    });
+
+    pageMainElm.addEventListener('click', (e) => {
+      if (e.target.classList.contains('view-gallery')) {
+        currentlySelected.generateGalleryOverlay();
+        hudElm.classList.add('visible');
       }
     });
 
