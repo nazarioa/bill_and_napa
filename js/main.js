@@ -13,12 +13,25 @@
       return obj;
     },
 
+    generateAltImageLiElm: function() {
+      this.images.forEach(item => {
+        console.log(item);
+        galleryOverlayTemplateElm.content.querySelector('.gallery-images')
+                                 .appendChild(this.generateGalleryImgLiElm(item.href, item.alt));
+      });
+    },
+
     generateLiElm: function () {
       const productLiTemplateElm = document.createElement('template');
       productLiTemplateElm.innerHTML = `
         <li class="product-item" style="background-image: url(${this.hero.href})" title="${this.name}" data-uid="${this.id}">
-        <!-- add link to view slideshow -->
         </li>`;
+      return productLiTemplateElm.content;
+    },
+
+    generateGalleryImgLiElm: function (href, alt) {
+      const productLiTemplateElm = document.createElement('template');
+      productLiTemplateElm.innerHTML = `<li class="gallery-item"><img src="${href}" class="gallery-item-img" alt="${alt}"/></li>`;
       return productLiTemplateElm.content;
     },
 
@@ -56,7 +69,7 @@
 
     generateGalleryOverlay: function () {
       hudElm.innerHTML = '';
-      galleryOverlayTemplateElm.content.querySelector('.gallery-title').innerHTML = 'Poop';
+      currentlySelected.generateAltImageLiElm();
       hudElm.appendChild(document.importNode(galleryOverlayTemplateElm.content, true));
       return galleryOverlayTemplateElm.content;
     }
