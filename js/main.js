@@ -144,6 +144,12 @@
       }
     });
 
+    hudElm.addEventListener('click', (e) => {
+      if (e.target.classList.contains('btn-close')) {
+        hudElm.classList.remove('visible');
+      }
+    });
+
     // Get Data
     fetch('./data.json',
       fetchHeaders)
