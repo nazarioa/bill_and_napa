@@ -11,6 +11,9 @@
   "dependencies": {
     "css-reset-and-normalize": "^0.3.0"
   },
+  "devDependencies": {
+    "node-sass": "^4.8.3"
+  },
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module"
