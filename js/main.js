@@ -24,7 +24,8 @@
     generateLiElm: function () {
       const productLiTemplateElm = document.createElement('template');
       productLiTemplateElm.innerHTML = `
-        <li class="product-item" style="background-image: url(${this.hero.href})" title="${this.name}" data-uid="${this.id}">
+        <li class="product-item">
+            <div class="product-item-img" style="background-image: url(${this.hero.href})" title="${this.name}" data-uid="${this.id}"></div>
         </li>`;
       return productLiTemplateElm.content;
     },
@@ -128,8 +129,10 @@
   const init = () => {
     // Add listener to all elements
     asideProductElm.addEventListener('click', (e) => {
-      if (e.target.classList.contains('product-item')) {
+      if (e.target.classList.contains('product-item-img')) {
         const uid = e.target.dataset.uid;
+        asideProductElm.querySelectorAll('.product-item').forEach(item => item.classList.remove('active'));
+        e.target.parentNode.classList.add('active');
         displayDetail(uid);
       }
     });
@@ -151,7 +154,7 @@
         renderProductListAside();
       })
       .then(() => {
-        asideProductElm.querySelectorAll('.product-item')[0].click();
+        asideProductElm.querySelectorAll('.product-item-img')[0].click();
       })
       .catch(error => console.log(error));
   };
