@@ -3,6 +3,12 @@
   padding: 1em;
   text-align: center;
   width: 100%;
+  max-width: 500px;
+
+  .gallery-img {
+    width: 100%;
+    max-width: 300px;
+  }
 
   .gallery-images {
     display: flex;
