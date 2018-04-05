@@ -1,6 +1,7 @@
 .gallery {
   background-color: white;
   padding: 1em;
+  text-align: center;
 
   .gallery-images {
     display: flex;
@@ -27,5 +28,9 @@
         display: inline-block;
       }
     }
+  }
+
+  .actions {
+    margin-top: 1em;
   }
 }

@@ -13,9 +13,8 @@
       return obj;
     },
 
-    generateAltImageLiElm: function() {
+    generateAltImageLiElm: function () {
       this.images.forEach(item => {
-        console.log(item);
         galleryOverlayTemplateElm.content.querySelector('.gallery-images')
                                  .appendChild(this.generateGalleryImgLiElm(item.href, item.alt));
       });
@@ -31,9 +30,9 @@
     },
 
     generateGalleryImgLiElm: function (href, alt) {
-      const productLiTemplateElm = document.createElement('template');
-      productLiTemplateElm.innerHTML = `<li class="gallery-item"><img src="${href}" class="gallery-item-img" alt="${alt}"/></li>`;
-      return productLiTemplateElm.content;
+      const galleryLiTemplateElm = document.createElement('template');
+      galleryLiTemplateElm.innerHTML = `<li class="gallery-item"><img src="${href}" class="gallery-item-img" alt="${alt}"/></li>`;
+      return galleryLiTemplateElm.content;
     },
 
     generateDetailDisplayElm: function () {
@@ -72,6 +71,7 @@
       hudElm.innerHTML = '';
       currentlySelected.generateAltImageLiElm();
       hudElm.appendChild(document.importNode(galleryOverlayTemplateElm.content, true));
+      document.querySelector('.gallery-img').setAttribute('src',  currentlySelected.images[0].href);
       return galleryOverlayTemplateElm.content;
     }
   };
@@ -122,6 +122,11 @@
       // TODO: More elegant way to handel this
       throw new Error('Something bad happened.');
     }
+
+    // Hide gallery if no images.
+    if (currentlySelected.images.length <= 0) {
+      document.querySelector('.view-gallery.btn').setAttribute('style', 'display: none;');
+    }
   };
 
   let currentlySelected = null;
@@ -148,6 +153,10 @@
       if (e.target.classList.contains('btn-close')) {
         hudElm.classList.remove('visible');
       }
+
+      if (e.target.classList.contains('gallery-item-img')) {
+        document.querySelector('.gallery-img').setAttribute('src',  e.target.currentSrc);
+      }
     });
 
     // Get Data
@@ -166,3 +175,5 @@
   };
   init();
 })();
+
+// UGH, This is why frameworks exist
