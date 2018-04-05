@@ -1,0 +1,19 @@
+.gallery {
+  background-color: white;
+  padding: 1em;
+
+  .gallery-images {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    width: 100%;
+    max-width: 500px;
+
+    .gallery-item .gallery-item-img {
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+    }
+  }
+}

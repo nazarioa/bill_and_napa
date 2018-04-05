@@ -1,0 +1,94 @@
+// .page-main.product
+
+.product-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2em 5em 1fr 1fr;
+  grid-template-areas: 'title' 'meta' 'hero' 'description';
+  font-size: 1rem;
+  margin: 0 auto;
+  justify-content: center;
+  align-self: stretch;
+  padding: 0 1em;
+
+  .product-title {
+    grid-area: title;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    justify-self: center;
+    align-self: stretch;
+  }
+
+  .product-img {
+    grid-area: hero;
+    padding-right: 1em;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border: 1px solid #666666;
+    }
+  }
+
+  .product-actions {
+    grid-area: meta;
+    justify-self: center;
+    align-self: stretch;
+    margin-top: 1em;
+  }
+}
+
+//
+
+@media screen and (min-width: 480px) and (max-width: 900px) {
+  .product-main {
+    border: 2px solid pink;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 3em 100px auto;
+    grid-template-areas: 'hero title'
+    'hero description'
+    'meta description';
+    font-size: 1rem;
+    margin: 2em auto;
+    padding-right: 1em;
+    justify-content: center;
+
+    .product-title {
+      font-size: 1.8em;
+      margin-bottom: 1em;
+      justify-self: normal;
+    }
+
+    .product-description {
+      grid-area: description;
+      justify-self: center;
+      border: 1px solid pink;
+    }
+  }
+}
+
+@media screen and (min-width: 780px) {
+  .product-main {
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: 3em 360px auto;
+    grid-template-areas: 'hero title' 'hero description' 'meta description';
+    font-size: 1rem;
+    margin: 0;
+    padding: 1em;
+    justify-content: center;
+    border: 2px dashed orange;
+
+    .product-title {
+      font-size: 1.8em;
+      margin-bottom: 1em;
+      justify-self: normal;
+    }
+
+    .product-description {
+      grid-area: description;
+      justify-self: center;
+      border: 1px solid pink;
+    }
+  }
+}

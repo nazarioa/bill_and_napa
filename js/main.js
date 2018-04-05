@@ -87,7 +87,7 @@
 
   // Elements
   const asideTitleElm = document.querySelector('.aside-title');
-  const asideProductElm = document.querySelector('.page-aside .products');
+  const asideProductElm = document.querySelector('.page-aside .aside-products');
   const pageMainElm = document.querySelector('.page-main');
   const hudElm = document.querySelector('#hud');
   const galleryOverlayTemplateElm = document.querySelector('#gallery-overlay-tpl');

@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node-sass -w ./scss/main.scss -o ./css/"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "css-reset-and-normalize": "^0.3.0"
+    "css-reset-and-normalize-sass": "^0.1.2"
   },
   "devDependencies": {
     "node-sass": "^4.8.3"

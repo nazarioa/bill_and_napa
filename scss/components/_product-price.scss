@@ -1,0 +1,17 @@
+.product-price {
+  margin: 0.5em 0;
+  color: #ffffff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.3em;
+  display: none;
+  position: relative;
+  left: 0.2em;
+  top: -2.9em;
+  background-color: #252525;
+  border: 1px solid #666666;
+  padding: 0.5em;
+
+  .high::before {
+    content: ' - ';
+  }
+}
