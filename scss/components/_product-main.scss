@@ -1,7 +1,7 @@
 .product-main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2em 10em 1fr 1fr;
+  grid-template-rows: fit-content(2em) 10em 1fr 1fr;
   grid-template-areas: 'title title' 'meta hero' 'description description';
   font-size: 1rem;
   margin: 0 auto;
@@ -50,7 +50,7 @@
 @media screen and (min-width: $lay-size-medium) {
   .product-main {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 4em auto;
+    grid-template-rows: fit-content(2em) auto;
     grid-template-areas: 'meta title' 'hero description';
     font-size: 1rem;
     margin: 0.5em auto;
@@ -79,7 +79,7 @@
 @media screen and (min-width: $lay-size-large) {
   .product-main {
     grid-template-columns: 400px 1fr;
-    grid-template-rows: 3em 360px auto;
+    grid-template-rows: fit-content(2em) 360px auto;
     grid-template-areas: 'hero title' 'hero description' 'meta description';
     font-size: 1rem;
     margin: 0;
