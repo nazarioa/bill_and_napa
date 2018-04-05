@@ -1,39 +1,7 @@
 .page-aside {
-  padding: 1em;
-  grid-area: selector;
-  border: 2px solid greenyellow;
-
   .aside-title {
     justify-self: center;
     text-align: center;
+    margin: 1em 0 0.5em 0;
   }
-}
-
-@media screen and (min-width: 480px) and (max-width: 900px) {
-
-  .page-aside .products .product-item {
-    width: 70px;
-    height: 70px;
-  }
-}
-
-@media screen and (min-width: 780px) {
-  .page-aside {
-    padding: 0;
-    grid-area: selector;
-
-    .aside-title {
-      margin-top: 1em;
-
-      .products {
-        flex-direction: column;
-        border-left: 1px solid #cfcfcf;
-        overflow-y: scroll;
-        /*height: inherit;*/
-        align-items: center;
-        border: 2px solid green;
-      }
-    }
-  }
-
 }
