@@ -13,7 +13,7 @@
     "css-reset-and-normalize-sass": "^0.1.2"
   },
   "devDependencies": {
-    "node-sass": "^4.8.3"
+    "node-sass": "^4.14.1"
   },
   "parserOptions": {
     "ecmaVersion": 6,
