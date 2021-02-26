@@ -1,0 +1,62 @@
+.page {
+  display: grid;
+  grid-template-rows: 85px 180px auto;
+  grid-template-columns: 100%;
+  grid-template-areas: 'mast' 'selector' 'viewer';
+}
+
+.page-header {
+  font-size: 1rem;
+  grid-area: mast;
+  display: block;
+  background-color: #252525;
+  color: #ffffff;
+  font-family: 'Playfair Display SC', serif;
+  text-align: center;
+
+  .page-title {
+    margin: 0.3em 0 0.4em 0;
+    font-size: 2em;
+    border-bottom: 1px solid #fefefe;
+    display: inline-block;
+    padding-bottom: 0.1em;
+
+    .extra {
+      display: none;
+    }
+  }
+
+  .page-main {
+    grid-area: viewer;
+    padding: 2em;
+  }
+}
+
+.page-aside {
+  grid-area: selector;
+}
+
+
+@media screen and (min-width: $lay-size-large) {
+  .page {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 4fr 8em;
+    grid-template-rows: 112px auto;
+    grid-template-areas: 'mast mast' 'viewer selector';
+
+    .page-header {
+      grid-area: mast;
+      font-size: 1.3rem;
+
+      .page-title .extra {
+        display: unset;
+      }
+    }
+
+    .page-main {
+      padding: 1em;
+    }
+  }
+}

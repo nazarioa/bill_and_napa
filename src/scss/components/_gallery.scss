@@ -1,0 +1,42 @@
+.gallery {
+  background-color: white;
+  padding: 1em;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+
+  .gallery-img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .gallery-images {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    width: 100%;
+
+    .gallery-item {
+      margin: 0.2em;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      .gallery-item-img {
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+      }
+    }
+  }
+
+  .actions {
+    margin-top: 1em;
+  }
+}

@@ -3,12 +3,13 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    <link rel="stylesheet" href="./node_modules/css-reset-and-normalize/css/reset-and-normalize.css"/>
-    <link rel="stylesheet" href="./css/main.css"/>
+    <link rel="stylesheet" href="./scss/main.scss"/>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Bill & Napa</title>
 </head>
 <body>
+<div id="hud"></div>
 <div class="page">
     <header class="page-header">
         <h1 class="page-title">B<span class="extra">ill</span>&amp;N<span class="extra">apa</span></h1>
@@ -22,35 +23,43 @@
         </nav>
     </header>
 
-    <section class="page-main product">
+    <section class="page-main product-main">
     </section>
 
-    <aside class="page-aside all-new-picker">
+    <aside class="page-aside">
         <div class="aside-title"></div>
-        <ul class="products">
-            <!--
-            <li class="product-item">
-                <div class="product-img">Standin</div>
-            </li>
-            -->
+        <ul class="aside-products">
         </ul>
     </aside>
 </div>
 
 <template id="product-detail-tpl">
     <h2 class="product-title"></h2>
-    <img class="product-img" src=""/>
-    <div class="product-description">
-        <div class="product-description-text"></div>
+    <div class="product-img">
+        <img class="" src="./images/NotFound.svg"/>
         <div class="product-price">
             <span class="price-currency">$</span>
             <span class="price-value low"></span>
             <span class="price-value high"></span>
         </div>
     </div>
-    <div class="product-meta">
+    <div class="product-description">
+        <div class="product-description-text"></div>
+    </div>
+    <nav class="actions product-actions">
         <a class="product-link btn" href="">More Info</a>
-        <a class="view-gallery btn btn-primary" href="">Gallery</a>
+        <a class="view-gallery btn btn-primary" href="#">Gallery</a>
+    </nav>
+</template>
+
+<template id="gallery-overlay-tpl">
+    <div class="gallery">
+        <ul class="gallery-images">
+        </ul>
+        <img src="./images/NotFound.svg" class="gallery-img" alt="">
+        <nav class="actions gallery-actions">
+            <a class="btn btn-close" href="#">Close</a>
+        </nav>
     </div>
 </template>
 

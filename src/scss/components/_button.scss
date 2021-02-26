@@ -1,0 +1,21 @@
+.btn {
+  background-color: #707070;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  padding: 0.5em 1em;
+  display: inline-block;
+  text-align: center;
+  cursor: default;
+
+  &:hover {
+    background-color: #252525;
+  }
+}
+
+@media screen and (min-width: $lay-size-medium) {
+  .btn {
+    font-size: 1rem;
+  }
+}
