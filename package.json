@@ -2,10 +2,11 @@
   "name": "william-sonoma-vanilla",
   "version": "1.0.0",
   "description": "",
-  "main": "index.html",
+  "main": "src/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node-sass -w ./scss/main.scss -o ./css/"
+    "build": "parcel build ./src/index.html --out-dir ./dist",
+    "dev": "parcel ./src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
@@ -13,7 +14,17 @@
     "css-reset-and-normalize-sass": "^0.1.2"
   },
   "devDependencies": {
-    "node-sass": "^4.14.1"
+    "parcel": "1.12.4",
+    "parcel-plugin-static-files-copy": "2.5.1",
+    "sass": "1.32.8"
+  },
+  "staticFiles": {
+    "staticPath": [
+      {
+        "staticPath": "data",
+        "staticOutDir": "/"
+      }
+    ]
   },
   "parserOptions": {
     "ecmaVersion": 6,

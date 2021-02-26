@@ -1,5 +1,7 @@
 css/
 _NOTES/
+.cache/
+dist/
 
 # Possible Global Practice #
 #############################

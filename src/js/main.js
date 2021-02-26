@@ -75,15 +75,6 @@
       return galleryOverlayTemplateElm.content;
     }
   };
-  //
-  const fetchHeaders = {
-    method: 'GET',
-    headers: {
-      'content-type': 'application/json'
-    },
-    mode: 'no-cors',
-    cache: 'default'
-  };
 
   // Elements
   const asideTitleElm = document.querySelector('.aside-title');
@@ -160,17 +151,20 @@
     });
 
     // Get Data
-    fetch('./data.json',
-      fetchHeaders)
+    fetch('/data.json',
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
       .then(response => response.json())
       .then(data => {
         setAsideTitle(data.name);
         setupProductList(data.groups);
         renderProductListAside();
       })
-      .then(() => {
-        asideProductElm.querySelectorAll('.product-item-img')[0].click();
-      })
+      .then(() => asideProductElm.querySelectorAll('.product-item-img')[0].click())
       .catch(error => console.log(error));
   };
   init();
