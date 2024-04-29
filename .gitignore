@@ -2,6 +2,7 @@ css/
 _NOTES/
 .cache/
 dist/
+.parcel-cache/
 
 # Possible Global Practice #
 #############################

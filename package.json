@@ -2,30 +2,34 @@
   "name": "william-sonoma-vanilla",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.html",
+  "source": "src/index.html",
+  "browserslist": [
+    "defaults and fully supports es6-module",
+    "maintained node versions"
+  ],
   "scripts": {
-    "build": "parcel build ./src/index.html --out-dir ./dist",
+    "build": "parcel build ./src/index.html --dist-dir ./dist",
     "dev": "parcel ./src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "browserslist": "^4.6.3",
     "css-reset-and-normalize-sass": "^0.1.2"
   },
   "devDependencies": {
-    "parcel": "2.8.3",
-    "parcel-plugin-static-files-copy": "2.5.1",
-    "sass": "1.32.8"
+    "@parcel/transformer-sass": "^2.12.0",
+    "parcel": "^2.12.0",
+    "parcel-plugin-static-files-copy": "^1.2.4",
+    "parcel-reporter-static-files-copy": "^1.5.3"
   },
-  "staticFiles": {
-    "staticPath": [
-      {
-        "staticPath": "data",
-        "staticOutDir": "/"
-      }
-    ]
-  },
+  "staticFiles": [
+    {
+      "staticPath": "data",
+      "staticOutDir": "/"
+    }
+  ],
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module"
@@ -38,5 +42,8 @@
       "browser": true,
       "node": true
     }
+  },
+  "engines": {
+    "node": "20"
   }
 }
