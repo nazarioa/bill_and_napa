@@ -8,3 +8,8 @@ The compsny I was intervieiwng with was William and Sonomma.
 I named the fake site "Bill & Napa", a play on William & Sonoma's name. I used the design language from their website at the time as the visual insperation.
 
 I used vanilla JS but created a few "components" usinh the JS/HTML template API.
+
+
+## Result
+
+I was offered the positon but i had already accepted something else. It was lots of fun and I am proud of it even if it is now long in the toof
